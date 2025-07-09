@@ -1,14 +1,9 @@
-# Django settings for smartfarmassistant project.
-
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-SECRET_KEY = 'your_secret_key_here'
-
+SECRET_KEY = 'your_secret_key'
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -18,9 +13,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'farms',
-    'sensors',
-    'iot',
+    'crops',
+    'weather',
+    'iot'
 ]
 
 MIDDLEWARE = [
@@ -57,8 +52,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'smartfarmassistant',
-        'USER': 'your_db_user',
-        'PASSWORD': 'your_db_password',
+        'USER': 'your_user',
+        'PASSWORD': 'your_password',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -80,21 +75,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
-}
