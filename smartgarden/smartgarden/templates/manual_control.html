@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Manual Control</h1>
+
+    <form method="post">
+        <button type="submit" name="action" value="on">Turn On Pump</button>
+        <button type="submit" name="action" value="off">Turn Off Pump</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Back to Dashboard</a>
+</body>
+</html>
