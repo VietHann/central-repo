@@ -1,0 +1,7 @@
+Flask
+requests
+opencv-python
+pillow
+tensorflow
+paho-mqtt
+python-dotenv

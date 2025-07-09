@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Gardening Assistant</title>
+</head>
+<body>
+    <h1>My Garden</h1>
+    <ul>
+        {% for plant_id, plant in plants.items() %}
+        <li>
+            <a href="/plant_details/{{ plant_id }}">{{ plant.name }}</a>
+            - Soil Moisture: {{ plant.soil_moisture }}%
+            - Last Watered: {{ plant.last_watered }}
+            <form action="/water_plant" method="post">
+                <input type="hidden" name="plant_id" value="{{ plant_id }}">
+                <button type="submit">Water Now</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Identify Plant</h2>
+    <form action="/upload_image" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Identify</button>
+    </form>
+
+
+    <script>
+
+        async function uploadImage() {
+            const formData = new FormData(document.getElementById('uploadForm'));
+
+            const response = await fetch('/upload_image', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            if (data.plant_type) {
+                alert(`Plant identified as: ${data.plant_type}`);
+            } else {
+                alert(`Error: ${data.error}`);
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
