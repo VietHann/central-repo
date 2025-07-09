@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: learnbydoing
+      POSTGRES_PASSWORD: learnbydoing
+      POSTGRES_DB: learnbydoing
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: learnbydoing.settings
+      DATABASE_URL: postgres://learnbydoing:learnbydoing@db:5432/learnbydoing
+
+volumes:
+  postgres_data:
