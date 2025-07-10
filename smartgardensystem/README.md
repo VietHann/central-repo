@@ -1,3 +1,3 @@
 # smartgardensystem
 
-Hệ thống quản lý và theo dõi vườn thông minh dựa trên IoT, giúp người dùng quản lý tưới tiêu, ánh sáng và dinh dưỡng cho cây trồng từ xa.
+He thong quan ly vuon thong minh, tu dong hoa viec tuoi tieu, phan tich dat, va dua ra canh bao cho nguoi dung qua ung dung di dong.
