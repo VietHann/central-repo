@@ -1,6 +1,0 @@
-Flask
-Flask-SQLAlchemy
-python-dotenv
-requests
-beautifulsoup4
-openai

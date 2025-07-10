@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+venv/
+.venv/
+*/migrations/*
+!*/migrations/__init__.py
