@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Watering History</title>
+</head>
+<body>
+    <h1>Watering History</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Duration (seconds)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.timestamp }}</td>
+                    <td>{{ record.duration }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

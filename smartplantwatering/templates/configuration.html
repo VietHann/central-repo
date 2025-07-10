@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration</title>
+</head>
+<body>
+    <h1>Configuration</h1>
+
+    <form method="POST">
+        <label for="watering_time">Watering Time (HH:MM):</label>
+        <input type="time" id="watering_time" name="watering_time" value="{{ config.watering_time }}"><br><br>
+
+        <label for="watering_duration">Watering Duration (seconds):</label>
+        <input type="number" id="watering_duration" name="watering_duration" value="{{ config.watering_duration }}"><br><br>
+
+        <label for="moisture_threshold">Moisture Threshold (%):</label>
+        <input type="number" id="moisture_threshold" name="moisture_threshold" value="{{ config.moisture_threshold }}"><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

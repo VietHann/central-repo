@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Plant Watering</title>
+</head>
+<body>
+    <h1>Smart Plant Watering System</h1>
+
+    <h2>Weather Data</h2>
+    {% if weather_data %}
+        <p>Temperature: {{ weather_data.main.temp }}</p>
+        <p>Humidity: {{ weather_data.main.humidity }}</p>
+        <p>Description: {{ weather_data.weather[0].description }}</p>
+    {% else %}
+        <p>Could not retrieve weather data.</p>
+    {% endif %}
+
+    <h2>Soil Moisture</h2>
+    <p>Soil Moisture: {{ soil_moisture }}%</p>
+
+    <h2>Configuration</h2>
+    <p>Watering Time: {{ config.watering_time }}</p>
+    <p>Watering Duration: {{ config.watering_duration }} seconds</p>
+    <p>Moisture Threshold: {{ config.moisture_threshold }}%</p>
+
+    <a href="{{ url_for('configuration') }}">Edit Configuration</a>
+
+    <h2>Actions</h2>
+    <a href="{{ url_for('water_now') }}">Water Now</a>
+    <a href="{{ url_for('history') }}">Watering History</a>
+
+
+</body>
+</html>
